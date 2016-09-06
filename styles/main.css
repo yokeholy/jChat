@@ -1,0 +1,56 @@
+html {
+    height: 100%;
+}
+
+* {
+    color: #EEEEEE;
+    font-family: 'Raleway', 'Microsoft Yahei', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background: #000117;
+    background: -moz-radial-gradient(center, circle cover, #310C48  0%, #000117 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #310C48 ), color-stop(100%, #000117));
+    background: -webkit-radial-gradient(center, circle cover, #310C48  0%, #000117 100%);
+    background: -o-radial-gradient(center, circle cover, #310C48  0%, #000117 100%);
+    background: -ms-radial-gradient(center, circle cover, #310C48  0%, #000117 100%);
+    background: radial-gradient(center, circle cover, #310C48  0%, #000117 100%);
+    background-color: #2b2b2b;
+    height: 100%;
+    overflow: hidden;
+}
+
+#ChatContent {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 80%;
+    border: 1px solid #aaa;
+    padding: 20px;
+    margin: 20px 100px;
+    height: 500px;
+    overflow: auto;
+}
+
+input {
+    width: 50%;
+    padding: 10px 5px;
+    margin: 20px 100px;
+    border-radius: 5px;
+    border: 1px solid #EEEEEE;
+    background: transparent;
+    color: #EEEEEE;
+}
+
+.Time {
+    color: #AAFFAA;
+}
+
+.Info {
+    color: #AACFFF;
+    font-style: italic;
+}
+
+.Name {
+    font-weight: bold;
+    color: #AAAAAA;
+}

@@ -1,72 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>A Small Chatroom</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
 </head>
+
 <body>
-<style type="text/css" media="screen">
-#ChatContent {
-	width: 80%;
-	border: 1px solid #aaa;
-	padding: 20px;
-	margin: 20px 100px;
-	height: 500px;
-	overflow: auto;
-}
-input {
-	width: 50%;
-	padding: 10px 5px;
-	margin: 20px 100px;
-}
-.Time {
-	font-weight: bold;
-	color: green;
-}
-.Info {
-	font-weight: bold;
-	color: blue;
-	font-style: italic;
-}
-.Name {
-	font-weight: bolder;
-	color: purple;
-}
-</style>
-
-<h1>This is a small Chatroom</h1>
-<div id="ChatContent"></div>
-<div><input type="text" placeholder="Your Name" id="MyName"></div>
-<div><input type="text" placeholder="Message" id="MyChat" onkeypress="sendMessage(event)"></div>
-
-<script src="/socket.io.js"></script>
-<script>
-var socket = io.connect('http://chat.wangjin.me:6654/');
-
-socket.on('info', function (data) {
-	var newP = document.createElement("p");
-	newP.innerHTML = "<span class=\"Time\">[" + data.Time + "]</span> <span class=\"Info\">" + data.information + "</span>";
-	document.getElementById("ChatContent").appendChild(newP);
-	// Auto-scroll
-	ChatContent.scrollTop = ChatContent.scrollHeight;
-});
-
-socket.on('newMessage' , function (data) {
-	var newP = document.createElement("p");
-	var ChatContent = document.getElementById("ChatContent");
-	newP.innerHTML = "<span class=\"Time\">[" + data.Time + "]</span> <span class=\"Name\">" + data.Name + ":</span> " + data.Message;
-	ChatContent.appendChild(newP);
-	// Auto-scroll
-	ChatContent.scrollTop = ChatContent.scrollHeight;
-});
-
-function sendMessage(e) {
-	if(e.keyCode === 13){
-		socket.emit("sendMessage", { Name: document.getElementById("MyName").value, Message: document.getElementById("MyChat").value });
-		document.getElementById("MyChat").value = "";
-	}
-}
-</script>
+    <h1>Chat on WangJin.me</h1>
+    <div id="ChatContent"></div>
+    <div>
+        <input type="text" placeholder="Your Name" id="MyName">
+    </div>
+    <div>
+        <input type="text" placeholder="Message" id="MyChat" onkeypress="sendMessage(event)">
+    </div>
+    <a href="https://wangjin.me">Back to WangJin.me</a>
+    <script src="//cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
+
 </html>
